@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Online Food Ordering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🍔 Foodie</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#orders">My Orders</a>
+        </nav>
+
+        <button class="cart-button" onclick="toggleCart()">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tagline">FRESH FOOD, HAPPY MOOD</p>
+            <h1>Delicious Food<br>Delivered To You.</h1>
+            <p>
+                Discover your favourite meals and order
+                delicious food from the comfort of your home.
+            </p>
+            <a href="#menu" class="primary-button">Order Now →</a>
+        </div>
+    </section>
+
+    <main>
+        <section class="menu-section" id="menu">
+
+            <div class="section-heading">
+                <div>
+                    <p class="tagline">OUR MENU</p>
+                    <h2>Explore Our Foods</h2>
+                </div>
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="🔍 Search food..."
+                    oninput="searchFood()"
+                >
+            </div>
+
+            <div class="categories">
+                <button class="category active"
+                        onclick="filterFood('All', this)">All</button>
+
+                <button class="category"
+                        onclick="filterFood('Burger', this)">Burgers</button>
+
+                <button class="category"
+                        onclick="filterFood('Pizza', this)">Pizza</button>
+
+                <button class="category"
+                        onclick="filterFood('Rice', this)">Rice</button>
+
+                <button class="category"
+                        onclick="filterFood('Drinks', this)">Drinks</button>
+            </div>
+
+            <div class="food-grid" id="food-grid"></div>
+
+        </section>
+
+        <section class="orders-section" id="orders">
+            <p class="tagline">ORDER TRACKING</p>
+            <h2>Your Recent Orders</h2>
+
+            <div id="order-history" class="order-history">
+                <p class="empty-message">No orders placed yet.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h2>🍔 Foodie</h2>
+        <p>Good food. Good mood. Delivered with love.</p>
+        <p>© 2026 Foodie Online Ordering System</p>
+    </footer>
+
+    <!-- Shopping Cart -->
+    <div class="cart-overlay" id="cart-overlay"
+         onclick="closeCartOutside(event)">
+
+        <div class="cart-panel" id="cart-panel">
+
+            <div class="cart-header">
+                <h2>🛒 Your Cart</h2>
+                <button class="close-button"
+                        onclick="toggleCart()">✕</button>
+            </div>
+
+            <div id="cart-items">
+                <p class="empty-message">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total Amount</span>
+                    <strong id="cart-total">₹0</strong>
+                </div>
+
+                <button class="checkout-button"
+                        onclick="checkout()">
+                    Place Order →
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
